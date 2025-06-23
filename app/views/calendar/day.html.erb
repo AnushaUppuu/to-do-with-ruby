@@ -2,14 +2,14 @@
   <h2>Tasks for <%= Date.new(@year, @month, @day).strftime("%B %d, %Y") %></h2>
 
   <% if @tasks.any? %>
-    <ul>
-      <% @tasks.each do |task| %>
-        <li>
-          <strong><%= task.title %></strong> - <%= task.status.capitalize %><br>
-          <%= task.description %>
-        </li>
-      <% end %>
-    </ul>
+  <ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to task.title, task_path(task), class: "task-link" %>
+    </li>
+  <% end %>
+</ul>
+
   <% else %>
     <p>No tasks for this date.</p>
   <% end %>
