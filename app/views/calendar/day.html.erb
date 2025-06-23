@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Tasks for <%= Date.new(@year, @month, @day).strftime("%B %d, %Y") %></h2>
+
+  <% if @tasks.any? %>
+    <ul>
+      <% @tasks.each do |task| %>
+        <li>
+          <strong><%= task.title %></strong> - <%= task.status.capitalize %><br>
+          <%= task.description %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No tasks for this date.</p>
+  <% end %>
+
+  <%= link_to "Back to Month", calendar_by_month_path(year: @year, month: @month), class: "btn btn-secondary" %>
+</div>

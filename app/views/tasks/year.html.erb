@@ -1,0 +1,6 @@
+<h1>Months in <%= @year %></h1>
+<ul>
+  <% @months.each do |month| %>
+    <li><%= link_to Date::MONTHNAMES[month], calendar_month_path(@year, month) %></li>
+  <% end %>
+</ul>

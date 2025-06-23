@@ -1,0 +1,11 @@
+<div class="container">
+  <h2><%= Date::MONTHNAMES[@month] %> <%= @year %></h2>
+
+  <div class="calendar-month-grid">
+    <% (@first_day..@last_day).each do |date| %>
+      <% has_task = @days_with_tasks.include?(date.day) %>
+      <%= link_to date.day, calendar_by_day_path(year: @year, month: @month, day: date.day),
+      class: "calendar-tile #{'has-task' if has_task}" %>  
+    <% end %>
+  </div>
+</div>

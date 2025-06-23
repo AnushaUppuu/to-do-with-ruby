@@ -1,0 +1,114 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #f0f0f5; /* light text for contrast */
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  margin: 8px 0 20px 0;
+  border: 1.5px solid #cbd5e1; /* soft gray-blue border */
+  border-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+  color: #1e293b;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
+  background-color: #fff;
+}
+/* This will center content horizontally and add padding */
+.container {
+  max-width: 600px; /* limit max width so it’s not too wide */
+  margin: 40px auto; /* auto left/right margin centers the container */
+  padding: 20px 30px; /* padding inside the container */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* optional light transparent bg */
+  border-radius: 12px; /* rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center child items horizontally */
+}
+/* Grid for year view - displays months */
+.calendar-year-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+  
+  /* Grid for month view - displays days */
+  .calendar-month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days in a week */
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Common tile for months/days */
+  .calendar-tile {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 15px 0;
+    border-radius: 8px;
+    color: #f0f0f5;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    display: block;
+  }
+  
+  /* Hover effect */
+  .calendar-tile:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  /* Highlight tiles that have tasks */
+  .calendar-tile.has-task {
+    background-color: #10b981; /* Tailwind emerald-500 */
+    color: white;
+  }
+  
+  /* Optional: responsive tweak */
+  @media (max-width: 600px) {
+    .calendar-year-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .calendar-month-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  

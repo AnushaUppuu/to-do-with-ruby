@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Tasks for <%= @year %></h2>
+
+  <div class="calendar-year-grid">
+    <% (1..12).each do |m| %>
+      <% has_task = @months_with_tasks.include?(m) %>
+      <%= link_to Date::MONTHNAMES[m], calendar_by_month_path(year: @year, month: m),
+      class: "calendar-tile #{'has-task' if has_task}" %>
+  
+    <% end %>
+  </div>
+</div>

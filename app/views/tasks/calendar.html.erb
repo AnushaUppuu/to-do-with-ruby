@@ -1,0 +1,24 @@
+<div class="container">
+<h1>Your Tasks by Year</h1>
+
+<% if @years.any? %>
+  <ul>
+    <% @years.each do |year| %>
+<ul>
+  <% @years.each do |year| %>
+    <li><%= link_to year, calendar_by_year_path(year: year) %></li>
+  <% end %>
+</ul>
+
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no tasks yet.</p>
+<% end %>
+
+<br>
+
+<%= link_to "➕ Add New Task", new_task_path, class: "btn btn-primary" %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+</div>
+</div>

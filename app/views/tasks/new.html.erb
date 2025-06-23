@@ -1,0 +1,23 @@
+<div class="container">
+<h1>New Task</h1>
+<%= form_with model: @task, local: true do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, [['Pending', 'pending'], ['Completed', 'completed']] %>
+  </div>
+  <div>
+    <%= form.submit "Create Task" %>
+  </div>
+<% end %>
+<%= link_to "← Back to All Tasks", root_path, class: "btn btn-secondary mb-3" %>
+
+
+</div>

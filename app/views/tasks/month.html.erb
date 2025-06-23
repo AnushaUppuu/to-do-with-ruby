@@ -1,0 +1,10 @@
+<h1>Tasks for <%= Date::MONTHNAMES[@month] %> <%= @year %></h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to task.title, task_path(task) %> - <%= task.status %>
+      (<%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %>)
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Add New Task', new_task_path %>
