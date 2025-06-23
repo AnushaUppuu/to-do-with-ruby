@@ -26,11 +26,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params)
+    @task = current_user.tasks.build(task_params)
+  
     if @task.save
-      redirect_to calendar_path, notice: "Task created!"
+      redirect_to root_path, notice: "Task created successfully!"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
