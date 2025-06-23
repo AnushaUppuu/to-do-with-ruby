@@ -16,6 +16,11 @@
   <div>
     <%= form.submit "Create Task" %>
   </div>
+  <div>
+  <%= form.label :finished_at, "Finish By (optional)" %><br>
+  <%= form.datetime_select :finished_at %>
+</div>
+
 <% end %>
 <%= link_to "← Back to All Tasks", root_path, class: "btn btn-secondary mb-3" %>
 
