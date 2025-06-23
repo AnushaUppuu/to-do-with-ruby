@@ -2,8 +2,12 @@ class CalendarController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @years = Task.where(user: current_user).pluck("DISTINCT EXTRACT(YEAR FROM created_at)").map(&:to_i).uniq
+    @years = Task.where(user: current_user)
+                 .pluck(Arel.sql("DISTINCT EXTRACT(YEAR FROM created_at)"))
+                 .map(&:to_i)
+                 .uniq
   end
+  
 
   def year
     @year = params[:year].to_i
