@@ -38,9 +38,15 @@ class TasksController < ApplicationController
   def destroy
     @task = current_user.tasks.find(params[:id])
     @task.destroy
-    redirect_to calendar_path, notice: "Task deleted."
+    redirect_to root_path, notice: "Task deleted successfully!"
   end
-
+  
+  def complete
+    @task = current_user.tasks.find(params[:id])
+    @task.update(status: "completed")
+    redirect_to task_path(@task), notice: "Task marked as completed!"
+  end
+  
   private
 
   def task_params
