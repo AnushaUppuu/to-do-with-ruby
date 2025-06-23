@@ -8,4 +8,5 @@
       class: "calendar-tile #{'has-task' if has_task}" %>  
     <% end %>
   </div>
+      <%= link_to "← Back to Year", calendar_by_year_path(year: @year), class: "btn btn-secondary mt-3" %>
 </div>
